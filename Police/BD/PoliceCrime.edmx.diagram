@@ -11,7 +11,7 @@
         <EntityTypeShape EntityType="PoliceModel.Employee" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="PoliceModel.Level" Width="1.5" PointX="3.75" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PoliceModel.Object" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PoliceModel.OpenCase" Width="1.5" PointX="8.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PoliceModel.OpenCase" Width="1.5" PointX="9.875" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PoliceModel.Rang" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PoliceModel.User" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
         <AssociationConnector Association="PoliceModel.FK_Case_Client" ManuallyRouted="false" />
