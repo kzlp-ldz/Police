@@ -5,11 +5,6 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Police", "Police\Police.csproj", "{F93F78B9-002D-4434-98D2-B87FF385B6D2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Randomiz", "Randomiz\Randomiz.csproj", "{3A02C32E-AAE2-4B7A-B72B-F6B88A275C29}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F93F78B9-002D-4434-98D2-B87FF385B6D2} = {F93F78B9-002D-4434-98D2-B87FF385B6D2}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Randomizer", "Randomizer\Randomizer.csproj", "{2E74F967-D685-4B2B-9639-11869D0B4504}"
 EndProject
 Global
@@ -22,10 +17,6 @@ Global
 		{F93F78B9-002D-4434-98D2-B87FF385B6D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F93F78B9-002D-4434-98D2-B87FF385B6D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F93F78B9-002D-4434-98D2-B87FF385B6D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A02C32E-AAE2-4B7A-B72B-F6B88A275C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A02C32E-AAE2-4B7A-B72B-F6B88A275C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A02C32E-AAE2-4B7A-B72B-F6B88A275C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A02C32E-AAE2-4B7A-B72B-F6B88A275C29}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E74F967-D685-4B2B-9639-11869D0B4504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E74F967-D685-4B2B-9639-11869D0B4504}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E74F967-D685-4B2B-9639-11869D0B4504}.Release|Any CPU.ActiveCfg = Release|Any CPU

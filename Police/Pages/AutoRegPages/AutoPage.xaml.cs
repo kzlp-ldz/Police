@@ -32,7 +32,7 @@ namespace Police.Pages.AutoRegPages
             var z = Bd_connection.connection.User.Where(a => a.Login == login.Text && a.Password == password.Password).FirstOrDefault();
             if (z != null)
             {
-                //NavigationService.Navigate(new KazinoPage(z));
+                NavigationService.Navigate(new CasePages.AllCasesPage(z));
             }
             else
             {
