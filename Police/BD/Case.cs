@@ -24,6 +24,7 @@ namespace Police.BD
         public Nullable<int> IdLevel { get; set; }
         public Nullable<int> IdClient { get; set; }
         public Nullable<int> IdCrimeType { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual CrimeType CrimeType { get; set; }

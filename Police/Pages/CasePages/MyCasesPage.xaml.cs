@@ -17,22 +17,22 @@ using Police.BD;
 namespace Police.Pages.CasePages
 {
     /// <summary>
-    /// Логика взаимодействия для AllCasesPage.xaml
+    /// Логика взаимодействия для MyCasesPage.xaml
     /// </summary>
-    public partial class AllCasesPage : Page
+    public partial class MyCasesPage : Page
     {
         User user = new User();
-        public AllCasesPage(User userr)
+        public MyCasesPage(User userr)
         {
             InitializeComponent();
             user = userr;
             var z = Bd_connection.connection.Employee.Where(a => a.ID == user.IdEmployee).FirstOrDefault();
-            case_dg.ItemsSource = Bd_connection.connection.Case.Where(a => a.Level.Place == z.IdRang && a.IsDeleted == false).ToList();
+            case_dg.ItemsSource = Bd_connection.connection.OpenCase.Where(a => a.IdEmployee == z.ID && a.Case.IsDeleted == true).Select(x=> x.Case).ToList();
         }
 
-        private void MyCaseLb_Click(object sender, MouseButtonEventArgs e)
+        private void AllCasesLb_Click(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new MyCasesPage(user));
+            NavigationService.Navigate(new AllCasesPage(user));
         }
 
         private void gooutlb_Click(object sender, MouseButtonEventArgs e)
@@ -45,12 +45,6 @@ namespace Police.Pages.CasePages
 
                 System.Windows.Application.Current.Shutdown();
             }
-        }
-
-        private void case_dg_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var v = case_dg.SelectedItem as Case; 
-            NavigationService.Navigate(new OpenCasePage(v, user));
         }
     }
 }

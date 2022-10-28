@@ -136,6 +136,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CasePages\MyCasesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CasePages\OpenCasePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD\PoliceCrime.Context.cs">
@@ -156,6 +164,12 @@
     </Compile>
     <Compile Include="Pages\CasePages\AllCasesPage.xaml.cs">
       <DependentUpon>AllCasesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CasePages\MyCasesPage.xaml.cs">
+      <DependentUpon>MyCasesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CasePages\OpenCasePage.xaml.cs">
+      <DependentUpon>OpenCasePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

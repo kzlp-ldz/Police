@@ -13,6 +13,7 @@
           <Property Name="IdLevel" Type="int" />
           <Property Name="IdClient" Type="int" />
           <Property Name="IdCrimeType" Type="int" />
+          <Property Name="IsDeleted" Type="bit" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -28,7 +29,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -235,6 +236,7 @@
           <NavigationProperty Name="CrimeType" Relationship="Self.FK_Case_CrimeType" FromRole="Case" ToRole="CrimeType" />
           <NavigationProperty Name="Level" Relationship="Self.FK_Case_Level" FromRole="Case" ToRole="Level" />
           <NavigationProperty Name="OpenCase" Relationship="Self.FK_OpenCase_Case" FromRole="Case" ToRole="OpenCase" />
+          <Property Name="IsDeleted" Type="Boolean" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -251,7 +253,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Case" Relationship="Self.FK_Case_CrimeType" FromRole="CrimeType" ToRole="Case" />
         </EntityType>
         <EntityType Name="Employee">
@@ -462,6 +464,7 @@
           <EntitySetMapping Name="Case">
             <EntityTypeMapping TypeName="PoliceModel.Case">
               <MappingFragment StoreEntitySet="Case">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IdLevel" ColumnName="IdLevel" />
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />

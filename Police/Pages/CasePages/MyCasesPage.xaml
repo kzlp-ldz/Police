@@ -1,4 +1,4 @@
-﻿<Page x:Class="Police.Pages.CasePages.AllCasesPage"
+﻿<Page x:Class="Police.Pages.CasePages.MyCasesPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Police.Pages.CasePages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AllCasesPage">
+      Title="MyCasesPage">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,11 +25,11 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label x:Name="allCase_lb" Content="Все обращения" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#E489A6" />
-        <Label x:Name="myCase_lb" Content="Мои обращения" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#706262" MouseLeftButtonDown="MyCaseLb_Click"/>
+        <Label x:Name="allCase_lb" Content="Все обращения" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#706262" MouseLeftButtonDown="AllCasesLb_Click"/>
+        <Label x:Name="myCase_lb" Content="Мои обращения" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#E489A6" />
         <Label x:Name="goout_lb" Content="Выйти" Grid.Column="4" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="#706262" MouseLeftButtonDown="gooutlb_Click"/>
         <DataGrid x:Name="case_dg" AutoGenerateColumns="False"  Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="5" FontSize="15" VerticalContentAlignment="Center" 
-                  HorizontalContentAlignment="Center" Foreground="#706262" Background="#F9EAEA" SelectionChanged="case_dg_SelectionChanged" >
+                  HorizontalContentAlignment="Center" Foreground="#706262" Background="#F9EAEA">
             <DataGrid.Columns >
                 <DataGridTextColumn  Header="Фамилия клиента" Width="150" Binding="{Binding Client.Surname}"/>
                 <DataGridTextColumn  Header="Имя клиента" Width="150" Binding="{Binding Client.Name}"/>

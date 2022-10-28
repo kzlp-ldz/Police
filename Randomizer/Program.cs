@@ -36,15 +36,16 @@ namespace Randomizer
 
             for (int i = 0; i <= 10; i++)
             {
-                levelrnd = caseLevel.Next(1, listLevel.Count());
+                levelrnd = caseLevel.Next(1, listLevel.Count()+1);
 
-                crimernd = caseCrime.Next(1, listCrime.Count());
+                crimernd = caseCrime.Next(1, listCrime.Count()+1);
 
-                clientrnd = caseClient.Next(1, listClient.Count());
+                clientrnd = caseClient.Next(1, listClient.Count()+1);
 
                 casee.IdLevel = levelrnd;
                 casee.IdClient = clientrnd;
                 casee.IdCrimeType = crimernd;
+                casee.IsDeleted = false;
 
                 Bd_connection.connection.Case.Add(casee);
                 Bd_connection.connection.SaveChanges();

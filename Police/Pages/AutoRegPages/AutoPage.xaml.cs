@@ -30,6 +30,7 @@ namespace Police.Pages.AutoRegPages
         private void btnConnect(object sender, RoutedEventArgs e)
         {
             var z = Bd_connection.connection.User.Where(a => a.Login == login.Text && a.Password == password.Password).FirstOrDefault();
+
             if (z != null)
             {
                 NavigationService.Navigate(new CasePages.AllCasesPage(z));
