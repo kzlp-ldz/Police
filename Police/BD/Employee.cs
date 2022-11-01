@@ -17,7 +17,6 @@ namespace Police.BD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employee()
         {
-            this.Object = new HashSet<Object>();
             this.OpenCase = new HashSet<OpenCase>();
             this.User = new HashSet<User>();
         }
@@ -28,10 +27,10 @@ namespace Police.BD
         public string Patronymic { get; set; }
         public Nullable<int> IdRang { get; set; }
         public Nullable<int> Score { get; set; }
+        public Nullable<int> IdObject { get; set; }
     
+        public virtual Object Object { get; set; }
         public virtual Rang Rang { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Object> Object { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OpenCase> OpenCase { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -56,22 +56,27 @@ namespace Police.Pages.CasePages
             {
                 case 20:
                     user.Employee.IdRang = 4;
+                    user.Employee.IdObject = 1;
                     Bd_connection.connection.SaveChanges();
                     break;
                 case 40:
                     user.Employee.IdRang = 3;
+                    user.Employee.IdObject = 2;
                     Bd_connection.connection.SaveChanges();
                     break;
                 case 60:
                     user.Employee.IdRang = 2;
+                    user.Employee.IdObject = 3;
                     Bd_connection.connection.SaveChanges();
                     break;
                 case 80:
                     user.Employee.IdRang = 1;
+                    user.Employee.IdObject = 4;
                     Bd_connection.connection.SaveChanges();
                     break;
                 default:
                     user.Employee.IdRang = user.Employee.IdRang;
+                    user.Employee.IdObject = user.Employee.IdObject;
                     Bd_connection.connection.SaveChanges();
                     break;
             }

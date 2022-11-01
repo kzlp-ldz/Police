@@ -80,38 +80,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BD\Bd_connection.cs" />
-    <Compile Include="BD\Case.cs">
-      <DependentUpon>PoliceCrime.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BD\Client.cs">
-      <DependentUpon>PoliceCrime.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BD\CrimeType.cs">
-      <DependentUpon>PoliceCrime.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BD\Employee.cs">
-      <DependentUpon>PoliceCrime.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BD\Level.cs">
-      <DependentUpon>PoliceCrime.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BD\Object.cs">
-      <DependentUpon>PoliceCrime.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BD\OpenCase.cs">
-      <DependentUpon>PoliceCrime.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BD\PoliceCrime.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PoliceCrime.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BD\Rang.cs">
-      <DependentUpon>PoliceCrime.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BD\User.cs">
-      <DependentUpon>PoliceCrime.tt</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,6 +87,48 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BD\Case.cs">
+      <DependentUpon>PoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\Client.cs">
+      <DependentUpon>PoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\CrimeType.cs">
+      <DependentUpon>PoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\Employee.cs">
+      <DependentUpon>PoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\Level.cs">
+      <DependentUpon>PoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\Object.cs">
+      <DependentUpon>PoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\OpenCase.cs">
+      <DependentUpon>PoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\PoliceModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PoliceModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\PoliceModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\PoliceModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PoliceModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BD\Rang.cs">
+      <DependentUpon>PoliceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\User.cs">
+      <DependentUpon>PoliceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -146,16 +156,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BD\PoliceCrime.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PoliceCrime.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BD\PoliceCrime.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PoliceCrime.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AutoRegPages\AutoPage.xaml.cs">
       <DependentUpon>AutoPage.xaml</DependentUpon>
     </Compile>
@@ -188,14 +188,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="BD\PoliceCrime.edmx">
+    <EntityDeploy Include="BD\PoliceModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PoliceCrime.Designer.cs</LastGenOutput>
+      <LastGenOutput>PoliceModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="packages.config" />
-    <None Include="BD\PoliceCrime.edmx.diagram">
-      <DependentUpon>PoliceCrime.edmx</DependentUpon>
+    <None Include="BD\PoliceModel.edmx.diagram">
+      <DependentUpon>PoliceModel.edmx</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -203,18 +203,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="BD\PoliceCrime.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PoliceCrime.Context.cs</LastGenOutput>
-      <DependentUpon>PoliceCrime.edmx</DependentUpon>
-    </Content>
-    <Content Include="BD\PoliceCrime.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PoliceCrime.edmx</DependentUpon>
-      <LastGenOutput>PoliceCrime.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -230,6 +218,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BD\PoliceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PoliceModel.edmx</DependentUpon>
+      <LastGenOutput>PoliceModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BD\PoliceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PoliceModel.edmx</DependentUpon>
+      <LastGenOutput>PoliceModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

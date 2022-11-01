@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище PoliceModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище PoliceModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Case">
           <Key>
             <PropertyRef Name="ID" />
@@ -41,6 +41,7 @@
           <Property Name="Patronymic" Type="nvarchar" MaxLength="20" />
           <Property Name="IdRang" Type="int" />
           <Property Name="Score" Type="int" />
+          <Property Name="IdObject" Type="int" />
         </EntityType>
         <EntityType Name="Level">
           <Key>
@@ -54,8 +55,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="20" />
-          <Property Name="IdEmployee" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="60" />
         </EntityType>
         <EntityType Name="OpenCase">
           <Key>
@@ -117,6 +117,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Employee_Object">
+          <End Role="Object" Type="Self.Object" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Object">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="IdObject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Employee_Rang">
           <End Role="Rang" Type="Self.Rang" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -126,18 +138,6 @@
             </Principal>
             <Dependent Role="Employee">
               <PropertyRef Name="IdRang" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Object_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Object" Type="Self.Object" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Object">
-              <PropertyRef Name="IdEmployee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -199,13 +199,13 @@
             <End Role="Level" EntitySet="Level" />
             <End Role="Case" EntitySet="Case" />
           </AssociationSet>
+          <AssociationSet Name="FK_Employee_Object" Association="Self.FK_Employee_Object">
+            <End Role="Object" EntitySet="Object" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
           <AssociationSet Name="FK_Employee_Rang" Association="Self.FK_Employee_Rang">
             <End Role="Rang" EntitySet="Rang" />
             <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Object_Employee" Association="Self.FK_Object_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Object" EntitySet="Object" />
           </AssociationSet>
           <AssociationSet Name="FK_OpenCase_Case" Association="Self.FK_OpenCase_Case">
             <End Role="Case" EntitySet="Case" />
@@ -220,7 +220,8 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PoliceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -232,11 +233,11 @@
           <Property Name="IdLevel" Type="Int32" />
           <Property Name="IdClient" Type="Int32" />
           <Property Name="IdCrimeType" Type="Int32" />
+          <Property Name="IsDeleted" Type="Boolean" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Case_Client" FromRole="Case" ToRole="Client" />
           <NavigationProperty Name="CrimeType" Relationship="Self.FK_Case_CrimeType" FromRole="Case" ToRole="CrimeType" />
           <NavigationProperty Name="Level" Relationship="Self.FK_Case_Level" FromRole="Case" ToRole="Level" />
           <NavigationProperty Name="OpenCase" Relationship="Self.FK_OpenCase_Case" FromRole="Case" ToRole="OpenCase" />
-          <Property Name="IsDeleted" Type="Boolean" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -265,11 +266,12 @@
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="IdRang" Type="Int32" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="IdObject" Type="Int32" />
+          <NavigationProperty Name="Object" Relationship="Self.FK_Employee_Object" FromRole="Employee" ToRole="Object" />
           <NavigationProperty Name="Rang" Relationship="Self.FK_Employee_Rang" FromRole="Employee" ToRole="Rang" />
-          <NavigationProperty Name="Object" Relationship="Self.FK_Object_Employee" FromRole="Employee" ToRole="Object" />
           <NavigationProperty Name="OpenCase" Relationship="Self.FK_OpenCase_Employee" FromRole="Employee" ToRole="OpenCase" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_Employee" FromRole="Employee" ToRole="User" />
-          <Property Name="Score" Type="Int32" />
         </EntityType>
         <EntityType Name="Level">
           <Key>
@@ -284,9 +286,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="IdEmployee" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Object_Employee" FromRole="Object" ToRole="Employee" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Object" FromRole="Object" ToRole="Employee" />
         </EntityType>
         <EntityType Name="OpenCase">
           <Key>
@@ -364,6 +365,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Employee_Object">
+          <End Role="Object" Type="Self.Object" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Object">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="IdObject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Employee_Rang">
           <End Role="Rang" Type="Self.Rang" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -373,18 +386,6 @@
             </Principal>
             <Dependent Role="Employee">
               <PropertyRef Name="IdRang" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Object_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
-          <End Role="Object" Type="Self.Object" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Object">
-              <PropertyRef Name="IdEmployee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -438,13 +439,13 @@
             <End Role="Case" EntitySet="Case" />
             <End Role="OpenCase" EntitySet="OpenCase" />
           </AssociationSet>
+          <AssociationSet Name="FK_Employee_Object" Association="Self.FK_Employee_Object">
+            <End Role="Object" EntitySet="Object" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
           <AssociationSet Name="FK_Employee_Rang" Association="Self.FK_Employee_Rang">
             <End Role="Rang" EntitySet="Rang" />
             <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Object_Employee" Association="Self.FK_Object_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Object" EntitySet="Object" />
           </AssociationSet>
           <AssociationSet Name="FK_OpenCase_Employee" Association="Self.FK_OpenCase_Employee">
             <End Role="Employee" EntitySet="Employee" />
@@ -464,11 +465,11 @@
           <EntitySetMapping Name="Case">
             <EntityTypeMapping TypeName="PoliceModel.Case">
               <MappingFragment StoreEntitySet="Case">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IdLevel" ColumnName="IdLevel" />
                 <ScalarProperty Name="IdClient" ColumnName="IdClient" />
                 <ScalarProperty Name="IdCrimeType" ColumnName="IdCrimeType" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -493,12 +494,13 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="PoliceModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="Score" ColumnName="Score" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
                 <ScalarProperty Name="IdRang" ColumnName="IdRang" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="IdObject" ColumnName="IdObject" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -515,7 +517,6 @@
               <MappingFragment StoreEntitySet="Object">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IdEmployee" ColumnName="IdEmployee" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

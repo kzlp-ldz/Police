@@ -28,6 +28,7 @@ namespace Police.Pages.CasePages
             user = userr;
             var z = Bd_connection.connection.Employee.Where(a => a.ID == user.IdEmployee).FirstOrDefault();
             case_dg.ItemsSource = Bd_connection.connection.Case.Where(a => a.Level.Place == z.IdRang && a.IsDeleted == false).ToList();
+            object_lb.Content = Bd_connection.connection.Object.FirstOrDefault(x=>x.ID == z.IdObject).Name;
         }
 
         private void MyCaseLb_Click(object sender, MouseButtonEventArgs e)

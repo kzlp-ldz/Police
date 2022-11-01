@@ -37,7 +37,8 @@
                 <DataGridTextColumn  Header="Тип преступления" Width="250" Binding="{Binding CrimeType.Name}"/>
                 <DataGridTextColumn  Header="Уровень" Width="90" Binding="{Binding Level.ID}"/>
             </DataGrid.Columns>
-
         </DataGrid>
+        <TextBlock Grid.Column="0" Text="Оборудование:" Grid.Row="6" HorizontalAlignment="Left" Grid.ColumnSpan="2" VerticalAlignment="Center" FontSize="24" Foreground="#706262"/>
+        <Label x:Name="object_lb" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#E489A6"/>
     </Grid>
 </Page>

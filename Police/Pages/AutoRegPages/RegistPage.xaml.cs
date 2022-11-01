@@ -44,6 +44,7 @@ namespace Police.Pages.AutoRegPages
                     employee.Patronymic = tbx_patronymic.Text;
                     employee.IdRang = 5;
                     employee.Score = 0;
+                    employee.IdObject = 5;
                     Bd_connection.connection.Employee.Add(employee);
                     Bd_connection.connection.SaveChanges();
 

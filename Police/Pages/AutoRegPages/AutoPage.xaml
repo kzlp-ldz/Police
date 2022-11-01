@@ -29,7 +29,7 @@
         <TextBlock Text="Логин"  FontSize="30" FontStyle="Normal" FontWeight="Regular" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#706262"/>
         <TextBlock Text="Пароль"  FontSize="30" FontStyle="Normal" FontWeight="Regular" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#706262"/>
         <TextBox x:Name="login"  TextAlignment="Left"  Grid.Column="1" Grid.Row="3" Background="#F9EAEA"  FontSize="30" Padding="5" FontStyle="Normal" FontWeight="Regular" Foreground="#706262" VerticalContentAlignment="Center"  />
-        <PasswordBox  x:Name="password"   Grid.Column="1" Grid.Row="5" Background="#F9EAEA"  FontSize="30"  Padding="5"  FontStyle="Normal" FontWeight="Regular" Foreground="#706262" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Margin="1,0,266,0" />
+        <PasswordBox  x:Name="password"   Grid.Column="1" Grid.Row="5" Background="#F9EAEA"  FontSize="30"  Padding="5"  FontStyle="Normal" FontWeight="Regular" Foreground="#706262" VerticalContentAlignment="Center"  />
         <StackPanel Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="connect" Content="Войти" Margin="3" Width="190" Grid.Column="1" Grid.Row="7" Background="#F9EAEA"  FontSize="30" Padding="1" FontStyle="Normal" FontWeight="Regular" Foreground="#E489A6"  Click="btnConnect"/>
             <Button x:Name="btn_reg" Content="Регистрация" Margin="3" Width="190"  Grid.Column="1" Grid.Row="7" Background="#F9EAEA" FontSize="30" Padding="1" FontStyle="Normal" FontWeight="Regular" Foreground="#E489A6"  Click="btnRegist"/>
