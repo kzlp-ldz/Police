@@ -51,7 +51,8 @@ namespace Police.Pages.CasePages
         private void case_dg_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var v = case_dg.SelectedItem as Case; 
-            NavigationService.Navigate(new OpenCasePage(v, user));
+            if (v != null)
+                NavigationService.Navigate(new OpenCasePage(v, user));
         }
     }
 }

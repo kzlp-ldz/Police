@@ -52,6 +52,7 @@ namespace Randomizer
 
                 Console.WriteLine("ADDED!");
             }
+            Console.ReadKey();
         }
     }
 }
